@@ -23,7 +23,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
     .then((result) => {
         console.log('connected to database')
 
-        console.log(`connected to port ${5000}`)
+        console.log(`connected to port ${PORT}`)
     })
     .catch((err) => {
         console.log(err)
@@ -36,7 +36,6 @@ app.get('*', checkUser)
 app.get('/', (req, res) => {
     res.send('hello')
 })
-app.get('/login', (req, res) => {
-    res.render('signup')
-})
+
+
 app.use(routes)
