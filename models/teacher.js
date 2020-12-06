@@ -5,15 +5,11 @@ const {isEmail} = require('validator')
 
 
 
-const userSchema = new mongoose.Schema({
+const teacherSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true,'Please enter your name']
-    },
-    rollnumber: {
-        type: String,
-        required: [true,'Please enter your roll number']
-    },
+    }, 
     school: {
         type: String,
         required: [true,'Please enter your school name']
@@ -21,6 +17,10 @@ const userSchema = new mongoose.Schema({
     class: {
         type: String,
         required: [true,'Please enter your class']
+    },
+    subject: {
+        type: String,
+        required: [true,'Please enter your subject']
     },
     email: {
         type: String,
@@ -36,13 +36,13 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-userSchema.pre('save', async function (next) {
+teacherSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password,salt)
     next();
 })
 
-userSchema.statics.login = async function(email,password){
+teacherSchema.statics.login = async function(email,password){
     const user = await this.findOne({email})
     if (user){
         const auth = await bcrypt.compare(password,user.password)
@@ -54,4 +54,4 @@ userSchema.statics.login = async function(email,password){
     throw Error('Invalid email')
 }
 
-module.exports = mongoose.model('user', userSchema)
+module.exports = mongoose.model('teacher', teacherSchema)
