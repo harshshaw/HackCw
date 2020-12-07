@@ -1,9 +1,12 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
+
+
 require("dotenv").config();
+
 const cookieParser = require('cookie-parser');
-const routes = require('./routes/userRoutes')
+// const routes = require('./routes/userRoutes')
 const { checkUser } = require('./middleware/authMiddleware')
 
 const app = express();
@@ -18,12 +21,12 @@ const PORT = process.env.PORT || 5000;
 console.log("Starting Server");
 app.listen(PORT, () => console.log(`server started on port :${PORT}`));
 
-const dbURI = 'mongodb+srv://Leoravoe:Leoravoe@hackcw.aqzlv.mongodb.net/HackCW?retryWrites=true&w=majority';
+const dbURI = process.env.DB_URI;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then((result) => {
         console.log('connected to database')
 
-        console.log(`connected to port ${PORT}`)
+        // console.log(`connected to port ${PORT}`)
     })
     .catch((err) => {
         console.log(err)
@@ -38,4 +41,5 @@ app.get('/', (req, res) => {
 })
 
 
-app.use(routes)
+app.use('/student',require('./routes/userRoutes'))
+app.use('/teacher',require('./routes/teacherRoutes'))
