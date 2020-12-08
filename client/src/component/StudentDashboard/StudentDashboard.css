@@ -1,0 +1,46 @@
+.card{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.student-info-container{
+    width: 100vw;
+    height: 50vh;
+    background-color: rgb(233, 13, 134);
+    display:flex;
+    
+    justify-content: right;
+    float:bottom;
+}
+.student-info{
+    margin-top: 45px;
+    width: 50vw;
+    height: 25vh;
+    display:block;
+    padding-right: 4px;
+    justify-content: right;
+    background-color: burlywood;
+    border: 2px solid;
+    box-shadow: 2px grey;
+}
+.student-score{
+    margin-left: 300px;
+    width: 100vh;
+    height: 50vh;
+    display: block;
+    justify-content: center;
+}
+.user-info{
+    font-family: 'Nerko One', cursive;
+    font-size: 25px;
+    font-weight: lighter;
+    padding-left: 30px;
+}
+
+.student-pdf-container{
+    width: 25vw;
+    height: 25vh;
+    margin-left: 370px;
+    background-color:coral;
+ 
+}

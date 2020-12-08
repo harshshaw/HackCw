@@ -75,5 +75,5 @@ app.get('/', (req, res) => {
 //     res.json(req.file)
 // })
 
-app.use('/student',require('./routes/userRoutes'))
-app.use('/teacher',require('./routes/teacherRoutes'))
+app.use('/student', require('./routes/userRoutes'))
+app.use('/teacher', require('./routes/teacherRoutes'))

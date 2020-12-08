@@ -34,16 +34,18 @@ class Login extends Component {
             this.setState({ errMessage: err.message });
           }); */
 
-        await Axios.post("http://localhost:5000/login", {
+        await Axios.post("http://localhost:5000/teacher/login", {
             email: this.state.email,
             password: this.state.password,
         })
             .then(
                 (res) => {
-                    localStorage.setItem("patientId", res.data.id);
-                    localStorage.setItem("isLoggedIn", res.data.success);
-                    localStorage.setItem("patientToken", res.data.token);
-                    console.log('success');
+                    localStorage.setItem("userID", res.data.userID);
+                    localStorage.setItem("useremail", res.data.useremail);
+                    localStorage.setItem("token", res.data.token);
+                    localStorage.setItem("type", "Teacher");
+                    console.log(res);
+                    <Redirect to='/' />
                     this.setState({ token: res.data })
 
                 }

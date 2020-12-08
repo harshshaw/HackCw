@@ -14,12 +14,12 @@ class Signup extends Component {
         this.handleChange = this.handleChange.bind(this);
 
         this.state = {
-            email: "",
+            email1: "",
             password: "",
             name: "",
-            // phone: "",
-            // address: "",
-            location: "",
+            subject: "",
+            class: "",
+            school: "",
             valid: false,
             // valid: false,
             // userId: "",
@@ -27,14 +27,28 @@ class Signup extends Component {
     }
     signup = async (e) => {
         e.preventDefault();
-        await Axios.post("http://localhost:5000/signup", {
-            /* name: this.state.name, */
-            email: this.state.email,
+        await Axios.post("http://localhost:5000/teacher/signup", {
+            name: this.state.name,
+            school: this.state.school,
+            class: this.state.class,
+            subject: this.state.subject,
+
+
+            email: this.state.email1,
             password: this.state.password,
             /* city: this.state.location,
             password2: this.state.password, */
         })
-            .then((res) => console.log('success'))
+            .then((res) => {
+                return (
+                    localStorage.setItem("userID", res.data.userID),
+                    localStorage.setItem("useremail", res.data.useremail),
+                    localStorage.setItem("token", res.data.token),
+                    localStorage.setItem('type', "Teacher"),
+                    this.setState({ valid: true })
+
+                )
+            })
             .catch((err) => console.log(err));
     };
 
@@ -50,7 +64,7 @@ class Signup extends Component {
 
     render() {
         if (this.state.valid) {
-            <Redirect to='/loginPt' />
+            <Redirect to='/' />
         }
         const options = [
             { value: 'Uttar Pradesh', label: 'Uttar Pradesh' },
@@ -177,11 +191,11 @@ class Signup extends Component {
                                 <div className="col-sm-10">
                                     <input
                                         type="email"
-                                        name="email"
+                                        name="email1"
                                         placeholder="Enter your email"
                                         className="form-control"
                                         aria-describedby="emailHelp"
-                                        value={this.state.email}
+                                        value={this.state.email1}
                                         onChange={this.handleChange}
                                     ></input>
                                 </div>
@@ -210,15 +224,33 @@ class Signup extends Component {
                                 </div>
                                 <div className="col-sm-10">
                                     <input
-                                        value={this.state.phone}
-                                        name="phone"
-                                        type="password"
-                                        placeholder="Re-Enter Your Password"
+                                        value={this.state.subject}
+                                        name="subject"
+                                        type="text"
+                                        placeholder="subject"
                                         className="form-control"
                                         aria-describedby="emailHelp"
                                         onChange={this.handleChange}
                                     ></input>
                                 </div>
+
+                            </div>
+                            <div className="row">
+                                <div className="col-sm-2">
+                                    <label><i class="fas fa-check-circle fa-lg"></i></label>
+                                </div>
+                                <div className="col-sm-10">
+                                    <input
+                                        value={this.state.school}
+                                        name="school"
+                                        type="text"
+                                        placeholder="school"
+                                        className="form-control"
+                                        aria-describedby="emailHelp"
+                                        onChange={this.handleChange}
+                                    ></input>
+                                </div>
+
                             </div>
                             <div className="row">
                                 <div className="col-sm-2">
@@ -226,14 +258,19 @@ class Signup extends Component {
                                         <i className="fas fa-map-marked-alt fa-lg"></i>
                                     </label>
                                 </div>
-                                {/* <div className="col-sm-10">
-                                    <Select
-                                        label="category"
-                                        name="location"
-                                        options={options}
-                                        onChange={this.handleChange2.bind(this)}
-                                    />
-                                </div> */}
+                                <div className="col-sm-10">
+                                    <div className="col-sm-10">
+                                        <input
+                                            value={this.state.class}
+                                            name="class"
+                                            type="number"
+                                            placeholder="Classs"
+                                            className="form-control"
+                                            aria-describedby="emailHelp"
+                                            onChange={this.handleChange}
+                                        ></input>
+                                    </div>
+                                </div>
                             </div>
                             <div className="text-center">
                                 <button

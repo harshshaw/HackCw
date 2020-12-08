@@ -1,0 +1,154 @@
+body .signupPt{
+    background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #b5b0ff 100%) !important;
+    overflow-x: hidden;
+    height: 100vh;
+  }
+  .signupPt .col-lg-8 img{
+    width: 45vw;
+    margin: 0 auto;
+  }
+  .signupPt {
+    color: #6861ca !important;
+  }
+  .signupPt .row{
+    padding-top: .5%;
+    padding-right: 2%;
+  }
+  .signupPt .col-sm-2{
+    padding-top: 10px;
+  }
+  .signupPt .col-sm-10{
+    padding-left: 0px;
+  }
+  .signupPt .col-lg-4{
+    margin:7% 0;
+    padding:2% 2% 0;
+  }
+  .signupPt .col-lg-4 input{
+    color: #6861ca;
+    border-width: 0;
+    border-radius: 0;
+    border-color: #6861ca;
+    border-bottom-width:1px ;
+    background-color: rgba(255,255,255,0);
+  }
+  .signupPt .col-lg-4 input::placeholder{
+    color: #6861ca;
+  }
+  .signupPt input:focus{
+    outline: none !important;
+    box-shadow: none;
+  }
+  .signupPt .col-lg-8{
+    padding-top: 6%;
+  }
+  .signInPtBtn{
+    margin:8%;
+    padding: 3% 10%;
+    border-radius: 20px;
+    border-color: #6861ca;
+    background-color:#6861ca;
+  }
+  .signInPtBtn:hover{
+    background-color: #4c42dd;
+    border-color: #4c42dd;
+  }
+  .signupPt textarea{
+    width: 100%;
+    margin-top: 2%;
+    color: #6861ca;
+    background-color: rgba(255,255,255,0);
+    border-bottom:1px solid ;
+  }
+  .signupPt .col-lg-4 textarea::placeholder{
+    color: #6861ca;
+  }
+  .signupPt textarea:focus{
+    outline: none !important;
+    box-shadow: none;
+  }
+  @media (max-width:1050px){
+    .signupPt .row{
+      width: 100%;
+    }
+    .signupPt > .row{
+      padding-bottom: 10%;
+    }
+    .signupPt .col-lg-4{
+      padding: 0;
+      padding-top: 2%;
+      padding-left: 2%;
+      padding-right: 5%;
+    }
+    .signupPt .col-lg-8{
+      padding: 0;
+      padding-top: 8%;
+    }
+    .signupPt .col-sm-10{
+      padding:0;
+    }
+    .signupPt .col-lg-8 {
+      padding-top: 10%;
+    }
+  }
+  
+  @media (max-width:800px){
+    body{
+      height: auto;
+    }
+    .signupPt .col-sm-2{
+      width: 10%;
+    }
+    .signupPt .row{
+      width: auto;
+    }
+    .signupPt form>.row{
+      margin-bottom: 5px;
+      text-align: center;
+      padding-left: 1%;
+      padding-right: 8%;
+    }
+    .signupPt .col-sm-10{
+      width: 85%;
+      padding: 0;
+      margin: 0 auto;
+    }
+    .shadow-lg{
+      box-shadow: none !important;
+    }
+    .signupPt .col-lg-8{
+      padding-top: 8%;
+    }
+    .signupPt .col-lg-8 img{
+      width: 80vw;
+      margin: 0 auto;
+    }
+    .signupPtBtn{
+      margin-bottom: 2%;
+      font-size: 22px;
+      padding:2% 5%;
+    }
+    
+  }
+  @media (max-width:600px){
+    .signupPt form>.row{
+      padding-left: 8%;
+    }
+    .signupPt .col-lg-4{
+      padding: 0;
+      padding-top: 2%;
+      padding-left: 2%;
+      padding-right: 0;
+    }
+    .signupPt .col-sm-10{
+      padding-left: 2%;
+    }
+  }
+  @media (max-width:400px){
+    .signupPt .col-sm-10{
+      width: 80%;
+    }
+    .signInDocbtn{
+      font-size: 18px;
+    }
+  }
