@@ -1,0 +1,33 @@
+<!doctype html>
+<title>Document Similarity Working MOD</title>
+<h2>Select a file to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/upload" enctype="multipart/form-data">
+    <dl>
+		<p>Upload Actual File : <br>
+			<input type="file" name="file" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Submit" style="padding:10px">
+    </p>
+    
+<h2>Original Extracted Text:</h2>
+    <p>{{ value }}</p>
+
+<h2>Summarised Text:</h2>
+    <p>{{ summary_text }}</p>
+
+<h2>Keywords in Text:</h2>
+    <p>{{ keywords }}</p>
+</form>
