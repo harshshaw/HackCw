@@ -64,3 +64,8 @@ module.exports.logout_get = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 });
     res.redirect('/');
   }
+
+module.exports.upload_post = (req, res) => {
+    console.log(req.file)
+    res.json({ID:req.file.id, filename:req.file.filename})
+}
