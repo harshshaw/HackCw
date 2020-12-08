@@ -39,7 +39,15 @@ module.exports.signup_post = async (req,res)=> {
         const user = await User.create(req.body)
         const token = create_token(user._id)
         res.cookie('jwt', token,{httpOnly:true, maxAge: maxAge*1000})
-        res.status(201).json({userID : user._id,useremail: user.email , token})
+        res.status(201).json({
+            userID: user._id,
+            name: user.name,
+            rollnumber:user.rollnumber,
+            school:user.school,
+            class:user.class ,
+            useremail: user.email,
+            token
+        })
     }catch(err){
         console.log(err.message)
         const errors = handleError(err)
@@ -53,7 +61,15 @@ module.exports.login_post = async (req,res)=> {
         const user = await User.login(email,password)
         const token = create_token(user._id)
         res.cookie('jwt', token,{httpOnly:true, maxAge: maxAge*1000})
-        res.status(201).json({userID: user._id,useremail: user.email , token})
+        res.status(201).json({
+            userID: user._id,
+            name: user.name,
+            rollnumber:user.rollnumber,
+            school:user.school,
+            class:user.class ,
+            useremail: user.email,
+            token
+        })
     }catch(err){
         // console.log(err.message)
         const errors = handleError(err)

@@ -6,12 +6,9 @@ const multer = require('multer')
 const Grid = require('gridfs-stream')
 const GridFsStorage = require('multer-gridfs-storage')
 const crypto = require('crypto')
+const conn = require('../db/conn')
 
 const router = Router()
-
-const conn = mongoose.createConnection(process.env.DB_URI,{useNewUrlParser: true, useUnifiedTopology:true},()=>{
-    console.log('Connected to db for pdf')
-})
 
 // initialize gfs 
 let gfs;
@@ -19,6 +16,7 @@ conn.once('open', () => {
     gfs = Grid(conn.db,mongoose.mongo)
     gfs.collection('pdfs')
 })
+
 
 const storage = new GridFsStorage({
     url: process.env.DB_URI,
@@ -45,6 +43,6 @@ router.post('/signup',uController.signup_post)
 router.post('/login',uController.login_post)
 router.get('/logout', uController.logout_get);
 router.post('/uploadfiles',upload.single('file'),uController.upload_post)
-
+// router.get('/:filename',uController.getfiles)
 
 module.exports = router;
