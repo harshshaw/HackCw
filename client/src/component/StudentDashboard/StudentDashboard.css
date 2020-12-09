@@ -1,34 +1,69 @@
+
+
 .card{
     margin-top: 30px;
     display: flex;
     justify-content: center;
 }
-.student-info-container{
-    width: 100vw;
+.student-score-container{
+    width: 150vw;
     height: 50vh;
-    background-color: rgb(233, 13, 134);
+    background-color:white;
     display:flex;
-    
+    margin-top: -500px;
+    margin-left: 500px;
     justify-content: right;
     float:bottom;
 }
 .student-info{
+    width: 100%;
+    height: 25vh;
+    padding:auto;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+}
+.student-email{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+    text-align: center;
+    color: whitesmoke;
+    margin: auto;
+}
+.student-id{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+    text-align: center;
+    color: whitesmoke;
+    margin: auto;
+}
+.student-class{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+    text-align: center;
+    color: whitesmoke;
+    margin: auto;
+}
+.student-score{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
     margin-top: 45px;
     width: 50vw;
-    height: 25vh;
+    height: 45vh;
     display:block;
     padding-right: 4px;
     justify-content: right;
-    background-color: burlywood;
-    border: 2px solid;
-    box-shadow: 2px grey;
-}
-.student-score{
-    margin-left: 300px;
-    width: 100vh;
-    height: 50vh;
-    display: block;
-    justify-content: center;
+    background-color: whitesmoke;
+    overflow-y: auto;
+   
 }
 .user-info{
     font-family: 'Nerko One', cursive;
@@ -38,9 +73,31 @@
 }
 
 .student-pdf-container{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 80%;
+  border-radius: 5px;
+  margin-left:80px;
     width: 25vw;
     height: 25vh;
-    margin-left: 370px;
-    background-color:coral;
+   
+    background-color:whitesmoke;
  
+}
+.card-body{
+    font-size: 25px;
+    font-weight: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:wheat
+}
+.student-pdf{
+    margin-top: 20px;
+}
+.upload-btn{
+    margin-top:50px;
+    margin-left:160px;
+}
+.teacher-id{
+    display: flex;
+    float:right;
 }

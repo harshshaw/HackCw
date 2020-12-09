@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './StudentDashboard.css';
 
 const StudentDashboard = () => {
+    const [file, updateFile] = useState(null);
     return (
         <div className='dashboard'>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,47 +29,58 @@ const StudentDashboard = () => {
                     </div>
                 </div>
             </nav>
-            <div className='student-info-container'>
-                <div className='student-info'>
-                    <h1 className=" fas fa-male">
-                        <span className="user-info">  Rajesh</span>
-                    </h1>
-                    <br></br>
-                    <h1 className="fas fa-chalkboard-teacher">
-                        <span className="user-info">  Class</span>
-                    </h1>
-                    <br></br>
-                    <h1 className="fas fa-at">
-                        <span className="user-info">  harshshaw5@gmail.com</span>
-                    </h1>
+
+            <div className='student-info'>
+                <div className='student-email'>
+                    <h2 className="fas fa-at"> harshshaw5@gmail.com</h2>
                 </div>
-                <div className='student-pdf-container'>
-                    <div className='student-pdf'>
-                        <input type="file"></input>
-                        <br></br>
-                        <button className="btn btn-primary">Upload</button>
+
+                <div className='student-class'>
+                    <h2>11th standard</h2>
+                </div>
+
+                <diiv className='student-id'>
+                    <h2>21344</h2>
+                </diiv>
+
+            </div>
+
+            <div className='student-pdf-container'>
+                <div className='student-pdf'>
+                    <input type="file"></input>
+                    <input type='text' placeholder="Teacher ID" className="teacher-id"></input>
+                    <br></br>
+                    <button className="btn btn-success upload-btn">Upload</button>
+                </div>
+            </div>
+
+            <div className='student-score-container'>
+                <h3>Student Score:</h3>
+                <div className='student-score'>
+
+                    <div className="card">
+                        <div className="card-body">
+                            This is some text within a card body.
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-body">
+                            This is some text within a card body.
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-body">
+                            This is some text within a card body.
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-body">
+                            This is some text within a card body.
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div className="student-score">
-                <div className="card">
-                    <div className="card-body">
-                        This is some text within a card body.
-                </div>
-                </div>
-                <div className="card">
-                    <div className="card-body">
-                        This is some text within a card body.
-                </div>
-                </div>
-                <div className="card">
-                    <div className="card-body">
-                        This is some text within a card body.
-                </div>
-                </div>
             </div>
-
         </div>
     )
 }
