@@ -80,9 +80,9 @@ module.exports.logout_get = (req, res) => {
 }
 
 module.exports.upload_post = async (req, res) => {
-    console.log(req.file)
-    console.log(" ")
-    console.log(req.body)
+    // console.log(req.file)
+    // console.log(" ")
+    // console.log(req.body)
     const { name, rollNumber, className,email,teacherID, subject } = req.body
     try {
         const studentUploadDetails = await Upload.create({
