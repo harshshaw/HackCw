@@ -12,6 +12,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
     });
 
     
+
 module.exports = mongoose.createConnection(dbURI,{useNewUrlParser: true, useUnifiedTopology:true},()=>{
         console.log('Connected to db for pdf')
 })
