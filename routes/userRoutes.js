@@ -42,6 +42,7 @@ router.post('/signup',uController.signup_post)
 router.post('/login',uController.login_post)
 router.get('/logout', uController.logout_get);
 router.post('/uploadfiles',upload.single('file'),uController.upload_post)
+router.get('/score/:id',uController.getscores)
 // router.get('/:filename',(req,res)=>{
   // gfs.files.findOne({filename: req.params.filename},(err,file)=>{
   //   // if(!file || file.length === 0 ){

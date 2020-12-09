@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user')
 const Upload = require('../models/studentupload')
-
+const StudentScore = require('../models/studentScore')
 const maxAge = 3 * 24 * 60 * 60;
 
 const create_token = (id) => {
@@ -83,7 +83,7 @@ module.exports.upload_post = async (req, res) => {
     // console.log(req.file)
     // console.log(" ")
     // console.log(req.body)
-    const { name, rollNumber, className,email,teacherID, subject } = req.body
+    const { name, rollNumber, className,email,teacherID,studentID, subject } = req.body
     try {
         const studentUploadDetails = await Upload.create({
             name,
@@ -92,12 +92,22 @@ module.exports.upload_post = async (req, res) => {
             subject,
             email,
             teacherID,
+            studentID,
             pdfID : req.file.id,
             pdffilename : req.file.filename
         })
         res.status(201).json(studentUploadDetails)
     } catch (error) {
         res.status(500).json({error})
+    }
+}
+
+module.exports.getscores = async (req, res) => {
+    try {
+        const scores = await StudentScore.find({studentID : req.params.id})
+        res.status(200).json(scores)
+    } catch (error) {
+        res.status(404).json(error)
     }
 }
 

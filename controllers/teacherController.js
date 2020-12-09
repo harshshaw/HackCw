@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken');
 const User = require('../models/teacher')
 const Studentupload = require('../models/studentupload')
+const StudentScore = require('../models/studentScore')
 const Grid = require('gridfs-stream')
 const conn = require('../db/conn')
 
@@ -99,9 +100,9 @@ module.exports.getallfiles = async (req,res)=>{
     const pdfname = []
     const pdf = []
     try {
-        const studentUpload = await Studentupload.find( {subject: req.params.sub})
-        Object.values(studentUpload).forEach(({name,pdfID,pdffilename})=>{
-        pdfname.push({name,pdfID,pdffilename})
+        const studentUpload = await Studentupload.find( {teacherID: req.params.id})
+        Object.values(studentUpload).forEach(({name,subject,teacherID,studentID,pdfID,pdffilename})=>{
+        pdfname.push({name,subject,teacherID,studentID,pdfID,pdffilename})
         })
         res.json(pdfname)
     } catch (error) {
@@ -119,5 +120,17 @@ module.exports.getfiles = async (req,res) => {
         }
         const readStream = gfs.createReadStream(file.filename)
         readStream.pipe(res)
-      })
+    })
+}
+
+module.exports.postScore = async(req, res)=>{
+    // const {} = req.body
+    // console.log(req.body)
+    try {
+        const score = await StudentScore.create(req.body)
+        // console.log(score)
+        res.status(201).send('Hogaya')
+    } catch (error) {
+        res.status(500).json({error})
+    }
 }
