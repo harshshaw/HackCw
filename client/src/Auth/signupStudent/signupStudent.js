@@ -43,6 +43,9 @@ class Signup extends Component {
                     localStorage.setItem("useremail", res.data.useremail),
                     localStorage.setItem("token", res.data.token),
                     localStorage.setItem('type', "Student"),
+                    localStorage.setItem('class', res.data.class),
+                    localStorage.setItem('rollNumber', res.data.rollnumber),
+                    localStorage.setItem('name', res.data.name),
                     this.setState({ valid: true })
                 )
             })
@@ -61,43 +64,9 @@ class Signup extends Component {
 
     render() {
         if (this.state.valid) {
-            <Redirect to='/loginPt' />
+            <Redirect to='/' />
         }
-        const options = [
-            { value: 'Uttar Pradesh', label: 'Uttar Pradesh' },
-            { value: 'Maharashtra', label: 'Maharashtra' },
-            { value: 'Bihar', label: 'Bihar' },
-            { value: 'West Bengal', label: 'West Bengal' },
-            { value: 'Madhya Pradesh', label: 'Madhya Pradesh' },
-            { value: 'Tamil Nadu', label: 'Tamil Nadu' },
-            { value: 'Rajasthan', label: 'Rajasthan' },
-            { value: 'Karnataka', label: 'Karnataka' },
-            { value: 'Gujarat', label: 'Gujarat' },
-            { value: 'Andhra Pradesh', label: 'Andhra Pradesh' },
-            { value: 'Odisha', label: 'Odisha' },
-            { value: 'Telangana', label: 'Telangana' },
-            { value: 'Kerala', label: 'Kerala' },
-            { value: 'Jharkhand', label: 'Jharkhand' },
-            { value: 'Assam', label: 'Assam' },
-            { value: 'Punjab', label: 'Punjab' },
-            { value: 'Chattisgarh', label: 'Chattisgarh' },
-            { value: 'Haryana', label: 'Haryana' },
-            { value: 'Delhi', label: 'Delhi' },
-            { value: 'Jammu and Kashmir', label: 'Jammu and kashmir' },
-            { value: 'Uttarakhand', label: 'Uttarakhand' },
-            { value: 'Himachal Pradesh', label: 'Himachal Pradesh' },
-            { value: 'Tripura', label: 'Tripura' },
-            { value: 'Meghalaya', label: 'Mehghalaya' },
-            { value: 'Manipur', label: 'Manipur' },
-            { value: 'Nagaland', label: 'Nagaland' },
-            { value: 'Goa', label: 'Goa' },
-            { value: 'Arunachal Pradesh', label: 'Arunachal Pradesh' },
-            { value: 'Mizoram', label: 'Mizoram' },
-        ]
-        if (this.state.valid) {
-            localStorage.setItem("token", this.state.valid);
-            localStorage.setItem("userId", this.state.userId);
-        }
+
         if (this.state.valid) return <Redirect to="/"></Redirect>;
 
         return (
