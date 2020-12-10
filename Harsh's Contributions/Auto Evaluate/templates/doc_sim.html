@@ -1,0 +1,40 @@
+<!doctype html>
+<title>Document Similarity Working MOD</title>
+<h2>Select a file to upload</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+<form method="post" action="/upload" enctype="multipart/form-data">
+    <dl>
+		<p>Upload Actual File : <br>
+			<input type="file" name="file" autocomplete="off" required>
+            <br><br>
+			Upload Query File :<br>
+            <input type="file" name="file1" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<br>Submit Here :
+		<input type="submit" value="Submit" style="padding:10px">
+    </p>
+
+<h2>Actual Extracted Text:</h2>
+    <p>{{ act_text }}</p>
+	<br>
+<h2>Query Extracted Text:</h2>
+    <p>{{ que_text }}</p>
+	<br>
+<h2>Similarity socre:</h2>
+    <p>{{ similar }}</p>
+
+
+
+</form>
