@@ -3,6 +3,19 @@ import './StudentDashboard.css';
 
 const StudentDashboard = () => {
     const [file, updateFile] = useState(null);
+    const [ID, updateId] = useState(null);
+    const change = (e) => {
+        updateFile(e.target.files[0].name);
+    }
+    let button = null;
+    let text = null;
+    if (!(file && ID)) {
+        button = null;
+    }
+    else {
+        button = "btn btn-success upload-btn"
+        text = "Upload!"
+    }
     return (
         <div className='dashboard'>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,16 +57,16 @@ const StudentDashboard = () => {
                 </diiv>
 
             </div>
-
-            <div className='student-pdf-container'>
-                <div className='student-pdf'>
-                    <input type="file"></input>
-                    <input type='text' placeholder="Teacher ID" className="teacher-id"></input>
-                    <br></br>
-                    <button className="btn btn-success upload-btn">Upload</button>
+            <form>
+                <div className='student-pdf-container'>
+                    <div className='student-pdf'>
+                        <input type="file" onChange={change}></input>
+                        <input type='text' placeholder="Teacher ID" className="teacher-id" onChange={(e) => updateId(e.target.value)}></input>
+                        <br></br>
+                        <button className={button}>{text}</button>
+                    </div>
                 </div>
-            </div>
-
+            </form>
             <div className='student-score-container'>
                 <h3>Student Score:</h3>
                 <div className='student-score'>
