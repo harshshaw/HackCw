@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 
-const studentUploadSchema = new mongoose.Schema({
+
+const studentScoreSchema = new mongoose.Schema({
     name : { type : String},
     rollNumber : { type : String},
     className : { type : String},
     subject : { type : String},
+    score : { type : String},
     email : { type : String},
     teacherID : { type : String},
     studentID: { type : String},
-    pdfID : { type : String},
-    pdffilename : { type : String}
 })
 
-module.exports = mongoose.model('uploaddetails',studentUploadSchema)
+module.exports = mongoose.model('scores',studentScoreSchema)
