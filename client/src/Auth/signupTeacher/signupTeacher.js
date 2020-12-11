@@ -45,6 +45,9 @@ class Signup extends Component {
                     localStorage.setItem("useremail", res.data.useremail),
                     localStorage.setItem("token", res.data.token),
                     localStorage.setItem('type', "Teacher"),
+                    localStorage.setItem('class', res.data.class),
+                    localStorage.setItem('rollNumber', res.data.rollnumber),
+                    localStorage.setItem('name', res.data.name),
                     this.setState({ valid: true })
 
                 )
