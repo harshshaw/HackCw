@@ -1,0 +1,112 @@
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700'); */
+
+/* /--- Bootstrap Padding Fix --/ */
+[class*="col-"] {
+    padding: 1rem;
+}
+
+.colored-section{
+  margin-top: 1.5rem;
+  width: 100%;
+  height: auto;
+  background-color: #F6BE00;
+}
+.info1{
+  float: left;
+  text-align: center;
+}
+
+.card-title{
+  text-align: center;
+}
+
+.heading{
+  color: #F6BE00;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  letter-spacing: 1.5px;
+}
+
+.submission{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 7%;
+  overflow-y: auto;
+}
+.card1{
+  margin: auto 2%;
+}
+.summary{
+  height: 40vh;
+  margin-top: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.sign{
+  margin-left: 10px;
+}
+.background-of-navbar{
+  background-color: #9ad3bc;
+}
+.brandName{
+  margin-left: 7%;
+}
+.medico{
+  letter-spacing: 1px;
+  color: white;
+  text-shadow: 1px 1px 2px #F6BE00, 0 0 25px #F6BE00, 0 0 5px darkblue;
+}
+.student-pdf{
+    height: 300px;
+    width: 250px;
+    overflow-y: auto;
+}
+.card1{
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  width: 18rem;
+}
+
+.marks{
+  margin-left: 1.8rem;
+  margin-bottom: 1rem;
+}
+.pdf{
+  margin: 1rem;
+}
+.submit-button{
+  margin-top: 1.3rem;
+  padding: 10px 20px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+.submit-button:hover{
+  background-color: #3e8e41;
+}
+.head{
+  margin-top: 1.5rem;
+}
+.card2{
+  float: left;
+}
+.upload{
+  margin-left: 8rem;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+
+}
+.upload-card,.upload-card2{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 1rem;
+}
+.detail{
+  width: 22.5rem;
+}

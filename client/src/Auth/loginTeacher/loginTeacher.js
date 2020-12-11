@@ -40,13 +40,14 @@ class Login extends Component {
         })
             .then(
                 (res) => {
-                    localStorage.setItem("userID", res.data.userID);
-                    localStorage.setItem("useremail", res.data.useremail);
-                    localStorage.setItem("token", res.data.token);
-                    localStorage.setItem("type", "Teacher");
-                    console.log(res);
-                    <Redirect to='/' />
-                    this.setState({ token: res.data })
+                    localStorage.setItem("userID", res.data.userID),
+                        localStorage.setItem("useremail", res.data.useremail),
+                        localStorage.setItem("token", res.data.token),
+                        localStorage.setItem('type', "Teacher"),
+                        localStorage.setItem('class', res.data.class),
+                        localStorage.setItem('rollNumber', res.data.rollnumber),
+                        localStorage.setItem('name', res.data.name),
+                        this.setState({ valid: true })
 
                 }
                 // this.setState({ valid: res.data.token, userId: res.data.userId })
@@ -54,10 +55,8 @@ class Login extends Component {
             )
             .catch((err) => console.log(err));
 
-        console.log(localStorage.getItem("token"));
 
-        const isLoggedIn = localStorage.getItem('isLoggedIn');
-        if (isLoggedIn) {
+        if (this.state.valid) {
             <Redirect to='/'></Redirect>
         }
     };
