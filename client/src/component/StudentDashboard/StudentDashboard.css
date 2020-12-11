@@ -13,7 +13,7 @@
     background-color:white;
     display:flex;
     margin-top: 0px;
-    margin-left: 120px;
+    margin-left: 40px;
     justify-content: right;
     float:bottom;
 }
@@ -75,18 +75,43 @@
     padding-left: 30px;
 }
 
+.student-counselling-container{
+    float: right;
+    width: 35%;
+    height: 40%;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-top:-640px;
+    margin-right: 30px;
+}
+.student-counselling{
+    width: 150px;
+    height: 600px;
+    margin-right:40px;
+    padding: auto;
+    
+}
+.button1{
+    margin-top:200px;
+    margin-left: 100px;
+
+}
+.button2{
+    margin-top:-60px;
+    margin-left:320px ;
+    width: 150px;
+}
 .student-pdf-container{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 100%;
   border-radius: 5px;
-  margin-left:80px;
-    width: 25vw;
-    height: 25vh;
-   
-    background-color:whitesmoke;
- 
-}
+  margin-left:70px;
+  width: 25vw;
+  height: 25vh;
+  background-color:whitesmoke;
+ }
 .card-body{
     font-size: 25px;
     font-weight: 2px;
@@ -107,7 +132,7 @@
     width: 50%;
     background-color: whitesmoke;
     margin-top:30px;
-    margin-left:310px;
+    margin-left:40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:rgb(201, 38, 87);
     

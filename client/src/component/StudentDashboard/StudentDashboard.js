@@ -42,7 +42,6 @@ const StudentDashboard = () => {
         formData.append('email', email);
         formData.append('teacherID', ID);
         formData.append('studentID', studentID);
-        console.log(formData);
         await Axios.post("http://localhost:5000/student/uploadfiles", formData)
             .then(res => console.log(res))
             .catch(err => console.log(err))
@@ -76,15 +75,15 @@ const StudentDashboard = () => {
 
             <div className='student-info'>
                 <div className='student-email'>
-                    <h2 className="fas fa-at"> {localStorage.getItem('useremail')}</h2>
+                    <h2 className="fas fa-at"> :{localStorage.getItem('useremail')}</h2>
                 </div>
 
                 <div className='student-class'>
-                    <h2>{localStorage.getItem('class')}</h2>
+                    <h2 className="fas fa-chalkboard-teacher"> :{localStorage.getItem('class')}</h2>
                 </div>
 
                 <diiv className='student-id'>
-                    <h2>{localStorage.getItem('userID')}</h2>
+                    <h3 className="fas fa-id-card"> :{localStorage.getItem('userID')}</h3>
                 </diiv>
 
             </div>
@@ -92,7 +91,6 @@ const StudentDashboard = () => {
 
             </form>
             <div className='student-score-container'>
-                <h3>Student Score:</h3>
                 <div className='student-score'>
 
                     <div className="card">
@@ -120,34 +118,41 @@ const StudentDashboard = () => {
             </div>
 
             <form className="student-submission" onSubmit={submit}>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Subject</label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         aria-describedby="emailHelp"
                         placeholder="Subject"
                         onChange={(e) => updateSubject(e.target.value)} />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputPassword1">TeacherId</label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="TeacherId"
                         onChange={(e) => updateTeacherId(e.target.value)} />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputPassword1">PDF</label>
                     <input
                         type="file"
                         name="file"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Password"
                         onChange={(e) => updateFile(e.target.files[0])} />
                 </div>
-                <button type="submit" class={button}>{text}</button>
+                <button type="submit" className={button}>{text}</button>
             </form>
+
+            <div className="student-counselling-container">
+                <div className="student-counselling">
+                    <button className="btn btn-success button1">Dropout</button>
+                    <button className="btn btn-primary button2 ">Career predictor</button>
+                </div>
+            </div>
 
         </div>
     )
