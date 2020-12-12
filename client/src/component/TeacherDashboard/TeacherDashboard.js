@@ -3,7 +3,9 @@ import React, { Component, useEffect, useState } from 'react'
 import './TeacherDashboard.css'
 const TeacherDashboard = () => {
     const [pdf, updatepdf] = useState([]);
-    const [TeacherID, updateTeacherID] = useState(null)
+    const [TeacherID, updateTeacherID] = useState(null);
+    const [pdf1, updatepdf1] = useState(null);
+    const [pdf2, updatepdf2] = useState(null);
 
 
     const requestPDF = async () => {
@@ -30,8 +32,18 @@ const TeacherDashboard = () => {
             )
         })
     )
+    const model = async (e) => {
+        e.preventDefault()
+        const formData = new FormData()
+        formData.append('file', pdf1)
+        await Axios.post("https://push-that-code.herokuapp.com/summary", formData)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }
     return (
         <div>
+            {/* This section is for NAVBAR */}
+
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand medico" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,12 +86,10 @@ const TeacherDashboard = () => {
                 </div>
             </nav>
 
-
+            {/* END */}
 
 
             <section class="colored-section">
-
-
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card ml-5 detail">
@@ -105,6 +115,8 @@ const TeacherDashboard = () => {
                     </div>
                 </div>
             </section>
+
+
             <section class="container">
 
 
@@ -144,30 +156,35 @@ const TeacherDashboard = () => {
 
             </section>
 
-            <section class="upload">
-                <div class="upload-card">
-                    <input type="file" name="" value="" />
-                </div>
-                <div class="upload-card2">
-                    <input type="file" name="" value="" />
-                </div>
-            </section>
+            {/* this section is for pdf uploads */}
+
+            <form onSubmit={model}>
+                <section class="upload">
+                    <div class="upload-card">
+                        <input type="file" name="" value="" onChange={(e) => updatepdf1(e.target.files[0])} />
+                    </div>
+                    <div class="upload-card2">
+                        <input type="file" name="" value="" onChange={(e) => updatepdf2(e.target.files[0])} />
+                    </div>
+                    <button type='submit' className="btn btn-primary"> Submit</button>
+                </section>
+            </form>
+
+            {/* END */}
+
+            {/* This section is for pdf summary */}
             <div class="container">
-
-
-
                 <h3 class="heading head">Summary</h3>
                 <div class=" w-100 border border-dark  summary">
 
-
                 </div>
-
-
-
                 <br />
                 <br />
                 <br />
             </div>
+            {/* END */}
+
+
         </div>
     )
 }

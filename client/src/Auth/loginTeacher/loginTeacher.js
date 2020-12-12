@@ -40,7 +40,8 @@ class Login extends Component {
         })
             .then(
                 (res) => {
-                    localStorage.setItem("userID", res.data.userID),
+                    return (
+                        localStorage.setItem("userID", res.data.userID),
                         localStorage.setItem("useremail", res.data.useremail),
                         localStorage.setItem("token", res.data.token),
                         localStorage.setItem('type', "Teacher"),
@@ -48,6 +49,7 @@ class Login extends Component {
                         localStorage.setItem('rollNumber', res.data.rollnumber),
                         localStorage.setItem('name', res.data.name),
                         this.setState({ valid: true })
+                    )
 
                 }
                 // this.setState({ valid: res.data.token, userId: res.data.userId })
