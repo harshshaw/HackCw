@@ -103,9 +103,14 @@
   justify-content: center;
 
 }
-.upload-card,.upload-card2{
+.upload-card{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-left: 1rem;
+}
+.upload-card2{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-left: 1rem;
+  margin-left: 20rem;
 }
 .detail{
   width: 22.5rem;

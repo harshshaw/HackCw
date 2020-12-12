@@ -11,6 +11,7 @@ const StudentDashboard = () => {
     const [email, updateEmail] = useState(null);
     const [studentID, updateStudentID] = useState(null);
     const [rollNumber, updaterollNumber] = useState(null);
+    const [marks, updateMarks] = useState([]);
     let button = null;
     let text = null;
     if (!(file && ID)) {
@@ -21,6 +22,11 @@ const StudentDashboard = () => {
         text = "Upload!"
     }
 
+    const Marks = async () => {
+        await Axios.get(`http://localhost:5000/student/score/${localStorage.getItem('userID')}`)
+            .then(res => updateMarks(res.data))
+            .catch(err => console.log(err))
+    }
     useEffect((e) => {
         return (
             updateName(localStorage.getItem('name')),
@@ -28,7 +34,8 @@ const StudentDashboard = () => {
             updateEmail(localStorage.getItem('useremail')),
             updateStudentID(localStorage.getItem('userID')),
             updaterollNumber(localStorage.getItem('rollNumber'))
-        )
+        ),
+            Marks()
     }, [])
     const submit = async (e) => {
 
@@ -46,6 +53,18 @@ const StudentDashboard = () => {
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }
+
+    let score = (
+        marks.map(data => {
+            return (
+                <div className="card">
+                    <div className="card-body">
+                        {data.score} {data.subject}
+                    </div>
+                </div>
+            )
+        })
+    )
     return (
         <div className='dashboard'>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -92,27 +111,7 @@ const StudentDashboard = () => {
             </form>
             <div className='student-score-container'>
                 <div className='student-score'>
-
-                    <div className="card">
-                        <div className="card-body">
-                            This is some text within a card body.
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-body">
-                            This is some text within a card body.
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-body">
-                            This is some text within a card body.
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="card-body">
-                            This is some text within a card body.
-                        </div>
-                    </div>
+                    {score}
                 </div>
 
             </div>

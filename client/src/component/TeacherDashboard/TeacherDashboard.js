@@ -1,13 +1,18 @@
 import Axios from 'axios';
 import React, { Component, useEffect, useState } from 'react'
+import Loader from '../Loader/loader'
 import './TeacherDashboard.css'
 const TeacherDashboard = () => {
     const [pdf, updatepdf] = useState([]);
     const [TeacherID, updateTeacherID] = useState(null);
     const [pdf1, updatepdf1] = useState(null);
     const [pdf2, updatepdf2] = useState(null);
-
-
+    const [summary, updateSummary] = useState(null);
+    const [pdfValid, updatePdfValid] = useState(false);
+    const [similar, updateSimilar] = useState(null);
+    const [StudentId, updateStudentId] = useState(null);
+    const [Marks, updateMarks] = useState(null);
+    const [subject, updateSubject] = useState(null);
     const requestPDF = async () => {
         await Axios.get(`http://localhost:5000/teacher/${localStorage.getItem('userID')}`)
             .then(res => updatepdf(res.data))
@@ -23,7 +28,7 @@ const TeacherDashboard = () => {
     let Component = (
         pdf.map(data => {
             return (
-                <div class="card">
+                <div key={data.pdfID} class="card">
                     <div class="card-body">
                         {data.name} {data.subject}
                     </div>
@@ -34,10 +39,32 @@ const TeacherDashboard = () => {
     )
     const model = async (e) => {
         e.preventDefault()
+        updatePdfValid(false);
         const formData = new FormData()
         formData.append('file', pdf1)
         await Axios.post("https://push-that-code.herokuapp.com/summary", formData)
-            .then(res => console.log(res))
+            .then(res => { return (updateSummary(res.data.summary_text), updatePdfValid(true)) })
+            .catch(err => console.log(err))
+    }
+
+    const model2 = async (e) => {
+        e.preventDefault()
+        const formData = new FormData()
+        formData.append('file1', pdf1)
+        formData.append('file2', pdf2)
+        await Axios.post("https://push-that-code.herokuapp.com/plagarism", formData)
+            .then(res => updateSimilar(res.data.similar))
+            .catch(err => console.log(err))
+    }
+
+    const marksPost = async (e) => {
+        e.preventDefault()
+        await Axios.post("http://localhost:5000/teacher/student/score", {
+            "score": Marks,
+            "subject": subject,
+            "teacherID": localStorage.getItem("userID"),
+            "studentID": StudentId,
+        }).then(res => console.log(res))
             .catch(err => console.log(err))
     }
     return (
@@ -143,14 +170,16 @@ const TeacherDashboard = () => {
                             <p class="card-text"></p>
                         </div>
 
-                        <div class="card-body mx-auto">
+                        <form class="card-body mx-auto" onSubmit={marksPost}>
                             <label class="marks">Marks: </label>
-                            <input type="text" name="marks" /><br />
+                            <input type="text" name="marks" placeholder="Enter Marks" onChange={(e) => updateMarks(e.target.value)} /><br />
                             <label>Student id: </label>
-                            <input type="text" name="stu_id" /><br />
+                            <input type="text" name="stu_id" placeholder="Enter Student Id" onChange={(e) => updateStudentId(e.target.value)} /><br />
+                            <label>Subject </label>
+                            <input type="text" name="stu_id" placeholder="Subject" onChange={(e) => updateSubject(e.target.value)} /><br />
                             <input class="submit-button" type="submit" name="submit" />
 
-                        </div>
+                        </form>
                     </div>
                 </div>
 
@@ -158,25 +187,29 @@ const TeacherDashboard = () => {
 
             {/* this section is for pdf uploads */}
 
-            <form onSubmit={model}>
+            <form onSubmit={model2} >
                 <section class="upload">
                     <div class="upload-card">
-                        <input type="file" name="" value="" onChange={(e) => updatepdf1(e.target.files[0])} />
+                        <input type="file" name="file" onChange={(e) => updatepdf1(e.target.files[0])} />
                     </div>
                     <div class="upload-card2">
-                        <input type="file" name="" value="" onChange={(e) => updatepdf2(e.target.files[0])} />
+                        <input type="file" name="file" onChange={(e) => updatepdf2(e.target.files[0])} />
                     </div>
-                    <button type='submit' className="btn btn-primary"> Submit</button>
+                    <br />
+                    <button type='submit' className="btn btn-primary" > Submit</button>
                 </section>
             </form>
-
+            <form onSubmit={model}>
+                <button type='submit' className="btn btn-primary" > Submit</button>
+            </form>
+            <p>{similar}</p>
             {/* END */}
 
             {/* This section is for pdf summary */}
             <div class="container">
                 <h3 class="heading head">Summary</h3>
                 <div class=" w-100 border border-dark  summary">
-
+                    {!pdfValid ? <Loader /> : <p>{summary}</p>}
                 </div>
                 <br />
                 <br />
