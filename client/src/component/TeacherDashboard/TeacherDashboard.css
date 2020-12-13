@@ -105,7 +105,7 @@
 }
 .upload-card{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-left: 1rem;
+  margin-left: 26rem;
 }
 .upload-card2{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -114,4 +114,17 @@
 }
 .detail{
   width: 22.5rem;
+}
+.similar-output{
+  transition: 0.3s;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-top: 4rem;
+    margin-left: 28rem;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(224, 9, 45);
+}
+.upload-pdf-1{
+  margin-left:4rem;
 }

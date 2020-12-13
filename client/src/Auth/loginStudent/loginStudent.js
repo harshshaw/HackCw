@@ -117,11 +117,11 @@ class Login extends Component {
                                     Sign-Up
                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a className="dropdown-item" href="/signDoc">
-                                        As a Doctor
+                                    <a className="dropdown-item" href="/signupTeacher">
+                                        Teacher
                   </a>
-                                    <a className="dropdown-item" href="/signPt">
-                                        As a Patient
+                                    <a className="dropdown-item" href="/signupStudent">
+                                        Student
                   </a>
                                 </div>
                             </li>
@@ -194,8 +194,8 @@ class Login extends Component {
                                             Log In
                     </button>
                                     </div>
-                  New User? Sign Up as <Link to="/signDoc">Doctor</Link> or{" "}
-                                    <Link to="/signPt">Patient</Link>
+                  New User? Sign Up as <Link to="/signupTeacher">Teacher</Link> or{" "}
+                                    <Link to="/signupStudent">Student</Link>
                                 </form>
                                 <p className="para">{this.state.errMessage}</p>
                             </div>

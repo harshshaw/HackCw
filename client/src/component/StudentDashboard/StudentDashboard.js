@@ -59,7 +59,7 @@ const StudentDashboard = () => {
             return (
                 <div className="card">
                     <div className="card-body">
-                        {data.score} {data.subject}
+                        MARKS {data.score}  :  Subject {data.subject}
                     </div>
                 </div>
             )
@@ -79,10 +79,10 @@ const StudentDashboard = () => {
                                 <a className="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Features</a>
+                                <a className="nav-link" href="/loginTeacher">SiginIn Teacher</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Pricing</a>
+                                <a className="nav-link" href="/signupTeacher">Signup Teacher</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -148,8 +148,8 @@ const StudentDashboard = () => {
 
             <div className="student-counselling-container">
                 <div className="student-counselling">
-                    <button className="btn btn-success button1">Dropout</button>
-                    <button className="btn btn-primary button2 ">Career predictor</button>
+                    <a className="btn btn-success button1" href="/form2">Dropout</a>
+                    <a className="btn btn-primary button2 " href="/form1">Career predictor</a>
                 </div>
             </div>
 

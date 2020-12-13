@@ -196,13 +196,13 @@ const TeacherDashboard = () => {
                         <input type="file" name="file" onChange={(e) => updatepdf2(e.target.files[0])} />
                     </div>
                     <br />
-                    <button type='submit' className="btn btn-primary" > Submit</button>
+                    <button type='submit' className="btn btn-primary plagiarism" > Plagiarism</button>
                 </section>
             </form>
             <form onSubmit={model}>
-                <button type='submit' className="btn btn-primary" > Submit</button>
+                <button type='submit' className="btn btn-primary" > Summary</button>
             </form>
-            <p>{similar}</p>
+            <p class='similar-output'>Similarity Score: {similar}</p>
             {/* END */}
 
             {/* This section is for pdf summary */}
